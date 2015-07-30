@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BIDMsgDetailViewController">
+            <connections>
+                <outlet property="_contentTextView" destination="2C5-XR-ch2" id="VEe-jE-nQV"/>
+                <outlet property="_titleLabel" destination="SHq-Lx-Hyk" id="HOX-Gy-qqN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHq-Lx-Hyk">
+                    <rect key="frame" x="8" y="8" width="304" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="bIO-FV-adC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.39215686917304993" green="0.39215686917304993" blue="0.39215686917304993" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2C5-XR-ch2">
+                    <rect key="frame" x="8" y="37" width="304" height="371"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.39215686917304993" green="0.39215686917304993" blue="0.39215686917304993" alpha="1" colorSpace="deviceRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" red="0.92549020051956177" green="0.94117647409439087" blue="0.94509804248809814" alpha="1" colorSpace="deviceRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="2C5-XR-ch2" secondAttribute="bottom" constant="8" id="BJO-tH-6hY"/>
+                <constraint firstItem="2C5-XR-ch2" firstAttribute="top" secondItem="SHq-Lx-Hyk" secondAttribute="bottom" constant="8" id="NTG-8J-7py"/>
+                <constraint firstItem="SHq-Lx-Hyk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="a7E-bG-e5h"/>
+                <constraint firstItem="2C5-XR-ch2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="ajH-cU-20T"/>
+                <constraint firstAttribute="trailing" secondItem="SHq-Lx-Hyk" secondAttribute="trailing" constant="8" id="cRg-e7-33v"/>
+                <constraint firstItem="SHq-Lx-Hyk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="jtc-e7-WPj"/>
+                <constraint firstAttribute="trailing" secondItem="2C5-XR-ch2" secondAttribute="trailing" constant="8" id="mcq-oz-HZZ"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="210" y="228"/>
+        </view>
+    </objects>
+</document>

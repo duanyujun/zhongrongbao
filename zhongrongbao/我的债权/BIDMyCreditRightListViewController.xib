@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BIDMyCreditRightListViewController">
+            <connections>
+                <outlet property="_bgView" destination="lVs-aC-PKT" id="u1H-us-5A1"/>
+                <outlet property="_creditRightListView" destination="Z7y-eo-dK9" id="UAg-vH-Nmc"/>
+                <outlet property="_segmentedControl" destination="tyn-oL-Qyj" id="Y6T-d4-f8z"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Y0R-yh-YTx"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lVs-aC-PKT">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                    <subviews>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tyn-oL-Qyj">
+                            <rect key="frame" x="75" y="6" width="170" height="29"/>
+                            <segments>
+                                <segment title="债权转让记录"/>
+                                <segment title="债权购买记录"/>
+                            </segments>
+                            <color key="tintColor" red="1" green="0.22352941334247589" blue="0.25882354378700256" alpha="1" colorSpace="calibratedRGB"/>
+                        </segmentedControl>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="1HL-6D-RPu"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Z7y-eo-dK9" customClass="BIDMyTableView">
+                    <rect key="frame" x="0.0" y="40" width="320" height="464"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.95686274766921997" green="0.95686274766921997" blue="0.95686274766921997" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Z7y-eo-dK9" secondAttribute="trailing" id="7kR-rN-R6K"/>
+                <constraint firstAttribute="bottom" secondItem="Z7y-eo-dK9" secondAttribute="bottom" id="9zb-OZ-FJA"/>
+                <constraint firstItem="Z7y-eo-dK9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GLs-gy-Nym"/>
+                <constraint firstItem="Z7y-eo-dK9" firstAttribute="top" secondItem="lVs-aC-PKT" secondAttribute="bottom" id="HiF-3A-nJa"/>
+                <constraint firstItem="lVs-aC-PKT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OTA-HS-J5p"/>
+                <constraint firstAttribute="trailing" secondItem="lVs-aC-PKT" secondAttribute="trailing" id="P7T-rc-q7K"/>
+                <constraint firstItem="lVs-aC-PKT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Yrk-Zi-iKU"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="250" y="336"/>
+        </view>
+    </objects>
+</document>

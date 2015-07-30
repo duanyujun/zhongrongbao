@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BIDEditMobilePhoneNumberViewController">
+            <connections>
+                <outlet property="_newMobilePhoneNumberLabel" destination="Zoe-Yc-pm2" id="JKC-vX-jNz"/>
+                <outlet property="_queryBtn" destination="vmA-Iy-NIY" id="0qS-hY-81P"/>
+                <outlet property="_verifyCodeBtn" destination="gmY-VA-xeq" id="gSo-Oy-3FN"/>
+                <outlet property="_verifyCodeTF" destination="BB8-fO-q6w" id="A7b-X2-Lnw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmA-Iy-NIY">
+                    <rect key="frame" x="0.0" y="112" width="320" height="45"/>
+                    <color key="backgroundColor" red="1" green="0.22352941176470587" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="UFS-4j-0Eb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="绑定手机">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="bindingNewMobilePhoneNumberBtnHandler:" destination="-1" eventType="touchUpInside" id="qY9-5f-Kqw"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="短信验证码已经发送到" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZ9-Z7-W7O">
+                    <rect key="frame" x="0.0" y="0.0" width="165" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="Kop-qT-30o"/>
+                        <constraint firstAttribute="width" constant="165" id="yr0-QC-QuW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13176010992" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zoe-Yc-pm2">
+                    <rect key="frame" x="165" y="0.0" width="155" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="b7M-tb-bNG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="1" green="0.22352941176470587" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Hw-9C-y2L">
+                    <rect key="frame" x="0.0" y="46" width="320" height="45"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="验证码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9G-Pt-ieZ">
+                            <rect key="frame" x="0.0" y="0.0" width="57" height="45"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="IJx-uE-hhu"/>
+                                <constraint firstAttribute="width" constant="57" id="WO8-cm-H7f"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入短信验证码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BB8-fO-q6w">
+                            <rect key="frame" x="57" y="0.0" width="177" height="45"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmY-VA-xeq">
+                            <rect key="frame" x="234" y="5" width="83" height="35"/>
+                            <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="83" id="99E-nu-ylF"/>
+                                <constraint firstAttribute="height" constant="35" id="CBQ-oS-kPJ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <state key="normal" title="获取验证码">
+                                <color key="titleColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="getVerifyCodeBtnHandler:" destination="-1" eventType="touchUpInside" id="WWj-0R-Tzi"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="I9G-Pt-ieZ" firstAttribute="leading" secondItem="2Hw-9C-y2L" secondAttribute="leading" id="1Xz-aO-nn3"/>
+                        <constraint firstAttribute="height" constant="45" id="8qC-PK-5lz"/>
+                        <constraint firstItem="gmY-VA-xeq" firstAttribute="top" secondItem="2Hw-9C-y2L" secondAttribute="top" constant="5" id="c6B-K5-vyo"/>
+                        <constraint firstItem="gmY-VA-xeq" firstAttribute="leading" secondItem="BB8-fO-q6w" secondAttribute="trailing" id="qF9-RG-i29"/>
+                        <constraint firstItem="BB8-fO-q6w" firstAttribute="top" secondItem="2Hw-9C-y2L" secondAttribute="top" id="tLY-SX-WxA"/>
+                        <constraint firstAttribute="bottom" secondItem="BB8-fO-q6w" secondAttribute="bottom" id="ttC-t1-uuZ"/>
+                        <constraint firstAttribute="trailing" secondItem="gmY-VA-xeq" secondAttribute="trailing" constant="3" id="u3c-2B-0ud"/>
+                        <constraint firstItem="I9G-Pt-ieZ" firstAttribute="top" secondItem="2Hw-9C-y2L" secondAttribute="top" id="xIv-lg-6gZ"/>
+                        <constraint firstItem="BB8-fO-q6w" firstAttribute="leading" secondItem="I9G-Pt-ieZ" secondAttribute="trailing" id="xit-UN-HBX"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="2Hw-9C-y2L" firstAttribute="top" secondItem="Zoe-Yc-pm2" secondAttribute="bottom" constant="1" id="4cy-YI-oT2"/>
+                <constraint firstItem="Zoe-Yc-pm2" firstAttribute="leading" secondItem="CZ9-Z7-W7O" secondAttribute="trailing" id="B3Q-M5-tvG"/>
+                <constraint firstItem="Zoe-Yc-pm2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QtQ-A6-OVW"/>
+                <constraint firstItem="vmA-Iy-NIY" firstAttribute="top" secondItem="2Hw-9C-y2L" secondAttribute="bottom" constant="21" id="c8t-Hi-yXC"/>
+                <constraint firstAttribute="trailing" secondItem="Zoe-Yc-pm2" secondAttribute="trailing" id="cDr-Tv-vte"/>
+                <constraint firstItem="2Hw-9C-y2L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="d7Z-De-5tj"/>
+                <constraint firstAttribute="trailing" secondItem="vmA-Iy-NIY" secondAttribute="trailing" id="gZa-f2-lTr"/>
+                <constraint firstItem="CZ9-Z7-W7O" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ixC-zb-kSc"/>
+                <constraint firstItem="CZ9-Z7-W7O" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rzK-Dy-jlg"/>
+                <constraint firstAttribute="trailing" secondItem="2Hw-9C-y2L" secondAttribute="trailing" id="tnH-Ao-fd5"/>
+                <constraint firstItem="vmA-Iy-NIY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zec-3D-mrN"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="9" y="151"/>
+        </view>
+    </objects>
+</document>
