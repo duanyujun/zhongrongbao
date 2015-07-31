@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "zhongrongbao/&#x9996;&#x9875;/2.0&#x9996;&#x9875;/sub category list/tenderDetailViewII/BIDTenderDetailViewControllerII.m"
-            timestampString = "459879462.455973"
+            timestampString = "460020448.079869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "435"
-            endingLineNumber = "435"
+            startingLineNumber = "439"
+            endingLineNumber = "439"
             landmarkName = "-getTenderBaseInfo:"
             landmarkType = "5">
          </BreakpointContent>
@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "zhongrongbao/&#x9996;&#x9875;/2.0&#x9996;&#x9875;/sub category list/tenderDetailViewII/BIDTenderDetailViewControllerII.m"
-            timestampString = "459879462.455973"
+            timestampString = "460020448.079869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
             landmarkName = "-layoutView"
             landmarkType = "5">
          </BreakpointContent>
@@ -132,11 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "zhongrongbao/&#x9996;&#x9875;/2.0&#x9996;&#x9875;/sub category list/tenderDetailViewII/BIDTenderDetailViewControllerII.m"
-            timestampString = "459879462.455973"
+            timestampString = "460020448.079869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "865"
-            endingLineNumber = "865"
+            startingLineNumber = "880"
+            endingLineNumber = "880"
             landmarkName = "-toTenderWithAmount:password:activityId:"
             landmarkType = "5">
          </BreakpointContent>
@@ -164,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "zhongrongbao/&#x9996;&#x9875;/2.0&#x9996;&#x9875;/sub category list/tenderDetailViewII/BIDTenderDetailViewControllerII.m"
-            timestampString = "459879462.455973"
+            timestampString = "460020448.079869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "362"
-            endingLineNumber = "362"
+            startingLineNumber = "366"
+            endingLineNumber = "366"
             landmarkName = "-getTenderDetailInfo"
             landmarkType = "5">
          </BreakpointContent>
@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "zhongrongbao/&#x9996;&#x9875;/2.0&#x9996;&#x9875;/sub category list/tenderDetailViewII/BIDTenderDetailViewControllerII.m"
-            timestampString = "459879462.455973"
+            timestampString = "460020448.079869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "879"
-            endingLineNumber = "879"
+            startingLineNumber = "894"
+            endingLineNumber = "894"
             landmarkName = "-toTenderWithAmount:password:activityId:"
             landmarkType = "5">
          </BreakpointContent>

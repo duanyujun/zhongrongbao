@@ -421,9 +421,9 @@ static NSString *canInvestAmtForTenderURL = @"borrows/getCanInvestAmt.shtml";
                     NSMutableDictionary *tenderInfoDic = [[NSMutableDictionary alloc] init];
                     NSString *strUserAmtInfoURL = [[NSString alloc] initWithFormat:@"%@/%@", [BIDAppDelegate getServerAddr], strQueryUserAccountInfoURL];
                     NSString *strURL = [[NSString alloc] initWithFormat:@"%@/%@", [BIDAppDelegate getServerAddr], getActivityList];
-                    [self.spinnerView showTheView];
                     NSString *strCanInvestAmtURL = [[NSString alloc] initWithFormat:@"%@/%@", [BIDAppDelegate getServerAddr], canInvestAmtForTenderURL];
                     NSString *strPost = [[NSString alloc] initWithFormat:@"jsonDataSet={\"bid\":\"%@\"}", _tenderId];
+                    [self.spinnerView showTheView];
                     __block int rev = 0;
                     dispatch_group_t group = dispatch_group_create();
                     dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{

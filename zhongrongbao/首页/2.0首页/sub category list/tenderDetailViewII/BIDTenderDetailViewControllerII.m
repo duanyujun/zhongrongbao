@@ -50,6 +50,10 @@ static NSString *strTenderURL = @"userInvest.shtml";
  *查询客户汇付天下账户信息
  */
 static NSString *strQueryUserAccountInfoURL = @"UserPay/PnrCount.shtml";
+/**
+ *某个标的当前可投金额
+ */
+static NSString *canInvestAmtForTenderURL = @"borrows/getCanInvestAmt.shtml";
 
 
 @interface BIDTenderDetailViewControllerII ()<UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate, BIDTenderAmountViewDelegate, UIAlertViewDelegate>
@@ -444,7 +448,6 @@ static NSString *strQueryUserAccountInfoURL = @"UserPay/PnrCount.shtml";
     NSString *strBorrowAmt = [[NSString alloc] initWithFormat:@"%@", value];
     //可投金额
     value = subDictionary[@"canInvestAmt"];
-    _tenderAmountView.canInvestAmt = [value floatValue];
     NSString *strCanInvestAmt = [[NSString alloc] initWithFormat:@"%@", value];
     //截止时间
     NSString *strClosingTime = subDictionary[@"closingTime"];
@@ -714,14 +717,20 @@ static NSString *strQueryUserAccountInfoURL = @"UserPay/PnrCount.shtml";
                 if(state==2)
                 {
                     NSMutableDictionary *userAmtInfoDictionary = [[NSMutableDictionary alloc] init];
+                    NSMutableDictionary *tenderInfoDic = [[NSMutableDictionary alloc] init];
                     NSString *strUserAmtInfoURL = [[NSString alloc] initWithFormat:@"%@/%@", [BIDAppDelegate getServerAddr], strQueryUserAccountInfoURL];
                     NSString *strURL = [[NSString alloc] initWithFormat:@"%@/%@", [BIDAppDelegate getServerAddr], getActivityList];
+                    NSString *strCanInvestAmtURL = [[NSString alloc] initWithFormat:@"%@/%@", [BIDAppDelegate getServerAddr], canInvestAmtForTenderURL];
+                    NSString *strPost = [[NSString alloc] initWithFormat:@"jsonDataSet={\"bid\":\"%@\"}", tenderId];
                     [self.spinnerView showTheView];
                     __block int rev = 0;
                     dispatch_group_t group = dispatch_group_create();
                     dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
                         //获取用户汇付信息
                         [BIDDataCommunication getDataFromNet:strUserAmtInfoURL toDictionary:userAmtInfoDictionary];
+                    });
+                    dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+                        rev = [BIDDataCommunication uploadDataByPostWithoutCookie:strCanInvestAmtURL postValue:strPost toDictionary:tenderInfoDic];
                     });
                     dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
                         //获取活动列表(红包、体验金)
@@ -748,6 +757,12 @@ static NSString *strQueryUserAccountInfoURL = @"UserPay/PnrCount.shtml";
                                 //为投标视图赋值账户余额
                                 _tenderAmountView.leftAmount = [strLeftAmt floatValue];
                             }
+                        }
+                        //
+                        if([[tenderInfoDic objectForKey:@"json"] isEqualToString:@"success"])
+                        {
+                            NSNumber *canInvestAmtValue = tenderInfoDic[@"data"];
+                            _tenderAmountView.canInvestAmt = [canInvestAmtValue floatValue];
                         }
                         //
                         if(rev==1)
