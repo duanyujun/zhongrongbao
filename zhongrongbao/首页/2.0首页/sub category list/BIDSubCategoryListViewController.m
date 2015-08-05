@@ -598,6 +598,10 @@ static NSString *canInvestAmtForTenderURL = @"borrows/getCanInvestAmt.shtml";
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
     [keyWindow addSubview:_activityListView];
 }
+- (void)hideActivityList
+{
+    [_activityListView removeFromSuperview];
+}
 
 #pragma mark -UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

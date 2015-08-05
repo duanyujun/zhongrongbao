@@ -21,6 +21,14 @@
     NSString *_tenderPwd;
     //
     UIToolbar *_toolBar;
+    //红包列表是否显示了
+    BOOL _bShowForRedPacket;
+    //体验金列表是否显示了
+    BOOL _bShowForTiYanJin;
+    //
+    UIButton *_clearBtnForRedPacket;
+    //
+    UIButton *_clearBtnForTiYanJin;
 }
 @end
 
@@ -31,22 +39,19 @@
 
 - (void)awakeFromNib
 {
-//    UILabel *leftLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, CGRectGetHeight(_amountTF.frame))];
-//    leftLabel.text = @"投资";
-//    [self setLabelAttribute:leftLabel];
-//    UILabel *rightLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 20, CGRectGetHeight(_amountTF.frame))];
-//    rightLabel.text = @"元";
-//    [self setLabelAttribute:rightLabel];
-//    _amountTF.leftView = leftLabel;
-//    _amountTF.leftViewMode = UITextFieldViewModeAlways;
-//    _amountTF.rightView = rightLabel;
-//    _amountTF.rightViewMode = UITextFieldViewModeAlways;
     //
     canInvestAmt = -10000.f;
     leftAmount = 0.f;
     _tenderPwd = @"";
     _redPacketId = @"";
     _tiYanJinId = @"";
+    //
+    _clearBtnForRedPacket = [UIButton buttonWithType:UIButtonTypeSystem];
+    _clearBtnForRedPacket.frame = CGRectMake(0, 0, 45, 45);
+    [_clearBtnForRedPacket addTarget:self action:@selector(clearBtnForRedPacketHandler) forControlEvents:UIControlEventTouchUpInside];
+    _clearBtnForTiYanJin = [UIButton buttonWithType:UIButtonTypeSystem];
+    _clearBtnForTiYanJin.frame = CGRectMake(0, 0, 45, 45);
+    [_clearBtnForTiYanJin addTarget:self action:@selector(clearBtnForTiYanJinHandler) forControlEvents:UIControlEventTouchUpInside];
     //
     _cancelBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _cancelBtn.layer.borderWidth = 1.0f;
@@ -116,6 +121,8 @@
         _amountTF.text = strContent;
     }
     _amountTF.text = @"";
+    _redPacketTF.text = @"";
+    _tiyanjinTF.text = @"";
     CGFloat inputAmount = [strContent floatValue];
     if(inputAmount > leftAmount)
     {
@@ -158,6 +165,8 @@
 - (IBAction)cancelBtnHandler:(id)sender
 {
     _amountTF.text = @"";
+    _redPacketTF.text = @"";
+    _tiyanjinTF.text = @"";
     [delegate cancelTender];
     [self removeFromSuperview];
 }
@@ -166,10 +175,29 @@
 {
     [self toTender];
 }
-
+//清除已选中的红包
+- (void)clearBtnForRedPacketHandler
+{
+    _redPacketTF.text = @"";
+    _redPacketId = @"";
+    [_clearBtnForRedPacket removeFromSuperview];
+    [delegate hideActivityList];
+}
+//清除已选中的体验金
+- (void)clearBtnForTiYanJinHandler
+{
+    _tiyanjinTF.text = @"";
+    _tiYanJinId = @"";
+    [_clearBtnForTiYanJin removeFromSuperview];
+    [delegate hideActivityList];
+}
+/**
+ *  显示或隐藏红包编辑框
+ *
+ *  @param bShow <#bShow description#>
+ */
 - (void)showOrHideRedPacketOption:(BOOL)bShow
 {
-    CGRect frame;
     CGRect ownFrame = self.frame;
     if(bShow)
     {
@@ -177,12 +205,14 @@
         {
             _redPacketTF.hidden = NO;
             _maskForRedPacketBtn.hidden = NO;
-            frame = _redPacketTF.frame;
-            frame.size.height = 45;
-            _redPacketTF.frame = frame;
-            _maskForRedPacketBtn.frame = frame;
+            //
             ownFrame.size.height += (45+8);
             self.frame = ownFrame;
+            //
+            _heightConstraintForRedPacket.constant = 45;
+            _heightConstraintForBtn1.constant = 45;
+            _topConstraintForBtn1.constant = 8;
+            _topConstraintForRedPacket.constant = 8;
         }
     }
     else
@@ -191,19 +221,25 @@
         {
             _redPacketTF.hidden = YES;
             _maskForRedPacketBtn.hidden = YES;
-            frame = _redPacketTF.frame;
-            frame.size.height = 0;
-            _redPacketTF.frame = frame;
-            _maskForRedPacketBtn.frame = frame;
+            //
             ownFrame.size.height -= (45+8);
             self.frame = ownFrame;
+            //
+            _heightConstraintForRedPacket.constant = 0;
+            _heightConstraintForBtn1.constant = 0;
+            _topConstraintForBtn1.constant = 0;
+            _topConstraintForRedPacket.constant = 0;
         }
     }
+    [self layoutIfNeeded];
 }
-
+/**
+ *  显示或隐藏体验金输入框
+ *
+ *  @param bShow <#bShow description#>
+ */
 - (void)showOrHideTiYanJinOption:(BOOL)bShow
 {
-    CGRect frame;
     CGRect ownFrame = self.frame;
     if(bShow)
     {
@@ -211,12 +247,13 @@
         {
             _tiyanjinTF.hidden = NO;
             _maskForTiYanJinBtn.hidden = NO;
-            frame = _tiyanjinTF.frame;
-            frame.size.height = 45;
-            _tiyanjinTF.frame = frame;
-            _maskForTiYanJinBtn.frame = frame;
+            //
             ownFrame.size.height += (45+8);
             self.frame = ownFrame;
+            _heightConstraintForTiYanJin.constant = 45;
+            _heightConstraintForBtn2.constant = 45;
+            _topConstraintForTiYanJin.constant = 8;
+            _topConstraintForBtn2.constant = 8;
         }
     }
     else
@@ -225,30 +262,36 @@
         {
             _tiyanjinTF.hidden = YES;
             _maskForTiYanJinBtn.hidden = YES;
-            frame = _tiyanjinTF.frame;
-            frame.size.height = 0;
-            _tiyanjinTF.frame = frame;
-            _maskForTiYanJinBtn.frame = frame;
+            //
             ownFrame.size.height -= (45+8);
             self.frame = ownFrame;
+            _heightConstraintForTiYanJin.constant = 0;
+            _heightConstraintForBtn2.constant = 0;
+            _topConstraintForTiYanJin.constant = 0;
+            _topConstraintForBtn2.constant = 0;
         }
     }
+    [self layoutIfNeeded];
 }
-
+/**
+ *  显示或隐藏输入密码编辑框
+ *
+ *  @param bShow <#bShow description#>
+ */
 - (void)showOrHidePasswordOption:(BOOL)bShow
 {
-    CGRect frame;
     CGRect ownFrame = self.frame;
     if(bShow)
     {
         if([_bgViewForPwd isHidden])
         {
             _bgViewForPwd.hidden = NO;
-            frame = _bgViewForPwd.frame;
-            frame.size.height = 45;
-            _bgViewForPwd.frame = frame;
+            //
             ownFrame.size.height += (45+8);
             self.frame = ownFrame;
+            //
+            _heightConstraintForPwdView.constant = 45.0f;
+            _topConstraintForPwdView.constant = 8;
         }
     }
     else
@@ -256,19 +299,51 @@
         if(![_bgViewForPwd isHidden])
         {
             _bgViewForPwd.hidden = YES;
-            frame = _bgViewForPwd.frame;
-            frame.size.height = 0;
-            _bgViewForPwd.frame = frame;
             ownFrame.size.height -= (45+8);
             self.frame = ownFrame;
+            //
+            _heightConstraintForPwdView.constant = 0.0f;
+            _topConstraintForPwdView.constant = 0;
         }
     }
+    [self layoutIfNeeded];
 }
 
 - (IBAction)btnDownHandler:(id)sender
 {
     UIButton *btn = (UIButton*)sender;
-    [delegate showActivityList:btn.frame type:btn.tag];
+    switch(btn.tag)
+    {
+        case 1:
+        {
+            if(!_bShowForRedPacket)
+            {
+                _bShowForRedPacket = YES;
+                [delegate showActivityList:btn.frame type:btn.tag];
+            }
+            else
+            {
+                _bShowForRedPacket = NO;
+                [delegate hideActivityList];
+            }
+        }
+            break;
+        case 2:
+        {
+            if(!_bShowForTiYanJin)
+            {
+                _bShowForTiYanJin = YES;
+                [delegate showActivityList:btn.frame type:btn.tag];
+            }
+            else
+            {
+                _bShowForTiYanJin = NO;
+                [delegate hideActivityList];
+            }
+        }
+            break;
+    }
+    //[delegate showActivityList:btn.frame type:btn.tag];
 }
 
 - (void)setRedPacket:(NSString *)strActName
@@ -304,13 +379,27 @@
 #pragma mark - BIDActivityListViewDelegate
 - (void)selectActivityForRedPacketWithName:(NSString *)actName activityId:(NSString *)activityId
 {
+    _bShowForRedPacket = NO;
     _redPacketTF.text = actName;
     _redPacketId = activityId;
+    //显示清除按钮
+    CGRect frame = _clearBtnForRedPacket.frame;
+    frame.origin.x = CGRectGetWidth(self.frame)-CGRectGetWidth(frame);
+    frame.origin.y = CGRectGetMinY(_redPacketTF.frame);
+    _clearBtnForRedPacket.frame = frame;
+    [self addSubview:_clearBtnForRedPacket];
 }
 - (void)selectActivityForTiYanJinWithName:(NSString *)actName activityId:(NSString *)activityId
 {
+    _bShowForTiYanJin = NO;
     _tiyanjinTF.text = actName;
     _tiYanJinId = activityId;
+    //显示清除按钮
+    CGRect frame = _clearBtnForTiYanJin.frame;
+    frame.origin.x = CGRectGetWidth(self.frame)-CGRectGetWidth(frame);
+    frame.origin.y = CGRectGetMinY(_tiyanjinTF.frame);
+    _clearBtnForRedPacket.frame = frame;
+    [self addSubview:_clearBtnForTiYanJin];
 }
 
 @end

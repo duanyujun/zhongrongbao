@@ -944,6 +944,11 @@ static NSString *canInvestAmtForTenderURL = @"borrows/getCanInvestAmt.shtml";
     [keyWindow addSubview:_activityListView];
 }
 
+- (void)hideActivityList
+{
+    [_activityListView removeFromSuperview];
+}
+
 #pragma mark UISegmentedControlChangeEvent
 - (IBAction)segmentedControlChangeHandler:(UISegmentedControl*)segmentedControl
 {

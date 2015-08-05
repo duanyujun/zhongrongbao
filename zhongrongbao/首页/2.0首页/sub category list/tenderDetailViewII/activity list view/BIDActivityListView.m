@@ -25,6 +25,10 @@
     if(self)
     {
         _dataSourceArr = [[NSMutableArray alloc] init];
+        _tableView = [[UITableView alloc] initWithFrame:self.bounds];
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+        [self addSubview:_tableView];
     }
     return self;
 }
@@ -57,12 +61,13 @@
     }
     NSDictionary *dic = _dataSourceArr[row];
     cell.textLabel.text = dic[@"actName"];
+    cell.textLabel.font = [UIFont systemFontOfSize:20.0f];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 30.0f;
+    return 40.0f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

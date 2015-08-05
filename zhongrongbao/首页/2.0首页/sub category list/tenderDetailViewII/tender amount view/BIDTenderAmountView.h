@@ -13,6 +13,7 @@
 - (void)toTenderWithAmount:(NSString*)strAmount password:(NSString*)strPwd activityId:(NSString*)strActivityIds;
 - (void)cancelTender;
 - (void)showActivityList:(CGRect)frame type:(int)type;
+- (void)hideActivityList;
 
 @end
 
@@ -40,6 +41,23 @@
     IBOutlet UIView *_bgViewForPwd;
     //投标密码输入框
     IBOutlet UITextField *_pwdTF;
+    IBOutlet UILabel *_pwdLable;
+    //约束
+    //密码框
+    IBOutlet NSLayoutConstraint *_heightConstraintForPwdView;
+    IBOutlet NSLayoutConstraint *_topConstraintForPwdView;
+    //红包
+    IBOutlet NSLayoutConstraint *_heightConstraintForRedPacket;
+    IBOutlet NSLayoutConstraint *_topConstraintForRedPacket;
+    //体验金
+    IBOutlet NSLayoutConstraint *_heightConstraintForTiYanJin;
+    IBOutlet NSLayoutConstraint *_topConstraintForTiYanJin;
+    //红包按钮
+    IBOutlet NSLayoutConstraint *_heightConstraintForBtn1;
+    IBOutlet NSLayoutConstraint *_topConstraintForBtn1;
+    //体验金按钮
+    IBOutlet NSLayoutConstraint *_heightConstraintForBtn2;
+    IBOutlet NSLayoutConstraint *_topConstraintForBtn2;
 }
 
 @property (assign, nonatomic) id<BIDTenderAmountViewDelegate> delegate;
